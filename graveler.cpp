@@ -13,11 +13,10 @@ uint8_t threads = 16;
 
 
 int16_t roller(int32_t loops) {
-
     std::random_device rando; // Create a random device
     std::mt19937 gen(rando()); // Initialize a Mersenne Twister engine
     std::uniform_int_distribution<> dist(0, 3); // Define a uniform distribution for [0, 3]
-
+    
     uint8_t roll, i = 0;
     uint16_t maxOnes = 0;
     uint16_t numbers[4] = { 0 };
@@ -41,10 +40,7 @@ int16_t roller(int32_t loops) {
 int main()
 {
     steady_clock::time_point start = high_resolution_clock::now(); //Get start time
-    
-    uint8_t  i = 0;
     uint16_t maxOnes = 0;
-    uint16_t numbers[4] = { 0 };
     
     cout << "Number of Roll Sessions: " << rolls << std::endl << std::endl;
     
@@ -65,7 +61,6 @@ int main()
             maxOnes = results[i];
     }
 
-
     //Find elapsed time
     steady_clock::time_point stop = high_resolution_clock::now();
     milliseconds ms = duration_cast<milliseconds>(stop - start);
@@ -79,4 +74,3 @@ int main()
     getchar();
     return 0;
 }
-
